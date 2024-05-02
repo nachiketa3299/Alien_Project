@@ -1,4 +1,4 @@
-// 2024-04-30 by RZN
+// 2024-05-03 by RZN
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +9,7 @@ namespace AlienProject
 	/// <summary>
 	/// 캐릭터의 회피 동작을 구현하는 추상 클래스입니다.
 	/// </summary>
+	[DisallowMultipleComponent]
 	[RequireComponent(typeof(PlayerInput))]
 	public abstract class DodgeActionBase : MonoBehaviour
 	{

@@ -2791,6 +2791,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: 79f03e9c-2276-4b91-b278-a7729dcab124
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: UIControl/Esc[/Keyboard/escape]
+      objectReference: {fileID: 0}
     - target: {fileID: 9020148418265376553, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4781952
