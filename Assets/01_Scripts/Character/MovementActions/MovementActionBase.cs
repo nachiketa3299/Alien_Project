@@ -1,4 +1,4 @@
-// 2024-04-30 RZN
+// 2024-05-03 RZN
 
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +8,7 @@ namespace AlienProject
 	/// <summary>
 	/// 캐릭터 움직임 컴포넌트들의 기본 추상 클래스입니다.
 	/// </summary>
+	[DisallowMultipleComponent]
 	[RequireComponent(typeof(PlayerInput))]
 	[RequireComponent(typeof(CharacterController))]
 	public abstract partial class MovementActionBase : MonoBehaviour
