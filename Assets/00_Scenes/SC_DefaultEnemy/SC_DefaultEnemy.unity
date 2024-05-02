@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 21814759}
   - component: {fileID: 21814758}
   - component: {fileID: 21814757}
-  - component: {fileID: 21814756}
   - component: {fileID: 21814755}
   - component: {fileID: 21814754}
   m_Layer: 5
@@ -194,7 +193,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 21814756}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -206,26 +205,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &21814756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21814752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 4
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &21814757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +299,6 @@ GameObject:
   - component: {fileID: 47713689}
   - component: {fileID: 47713688}
   - component: {fileID: 47713687}
-  - component: {fileID: 47713686}
   - component: {fileID: 47713685}
   m_Layer: 5
   m_Name: SlotButton_0
@@ -362,22 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
---- !u!114 &47713686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47713683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a0e4d7f4027ad4f8067a8b139f6b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tokenManager: {fileID: 0}
-  _skillNameTMP: {fileID: 0}
-  _isEmpty: 1
-  _image: {fileID: 0}
 --- !u!114 &47713687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,7 +914,6 @@ GameObject:
   - component: {fileID: 137314036}
   - component: {fileID: 137314039}
   - component: {fileID: 137314038}
-  - component: {fileID: 137314037}
   m_Layer: 5
   m_Name: ActionSet_Panel
   m_TagString: Untagged
@@ -982,23 +943,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &137314037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137314035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78661586d74e603419b1491c6cd9962c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _childs: []
-  _tokenList: []
-  _currentToken: []
-  dragingToken: {fileID: 0}
-  _filePath: Assets/01_Scripts/ExcelDB.xlsx
 --- !u!114 &137314038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1999,7 +1943,6 @@ GameObject:
   - component: {fileID: 164908698}
   - component: {fileID: 164908697}
   - component: {fileID: 164908696}
-  - component: {fileID: 164908695}
   - component: {fileID: 164908694}
   - component: {fileID: 164908693}
   m_Layer: 5
@@ -2058,7 +2001,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 164908695}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -2070,26 +2013,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &164908695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164908691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 5
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &164908696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4056,7 +3979,6 @@ GameObject:
   - component: {fileID: 332992914}
   - component: {fileID: 332992913}
   - component: {fileID: 332992912}
-  - component: {fileID: 332992911}
   - component: {fileID: 332992910}
   - component: {fileID: 332992909}
   m_Layer: 5
@@ -4115,7 +4037,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 332992911}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -4127,26 +4049,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &332992911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332992907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &332992912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7947,7 +7849,6 @@ GameObject:
   - component: {fileID: 678110954}
   - component: {fileID: 678110953}
   - component: {fileID: 678110952}
-  - component: {fileID: 678110951}
   - component: {fileID: 678110950}
   - component: {fileID: 678110949}
   m_Layer: 5
@@ -8006,7 +7907,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 678110951}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -8018,26 +7919,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &678110951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678110947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &678110952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15370,7 +15251,6 @@ GameObject:
   - component: {fileID: 969937292}
   - component: {fileID: 969937291}
   - component: {fileID: 969937290}
-  - component: {fileID: 969937289}
   - component: {fileID: 969937288}
   - component: {fileID: 969937287}
   m_Layer: 5
@@ -15429,7 +15309,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 969937289}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -15441,26 +15321,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &969937289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969937285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &969937290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17716,7 +17576,6 @@ GameObject:
   - component: {fileID: 1255482484}
   - component: {fileID: 1255482483}
   - component: {fileID: 1255482482}
-  - component: {fileID: 1255482481}
   - component: {fileID: 1255482480}
   - component: {fileID: 1255482479}
   m_Layer: 5
@@ -17775,7 +17634,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1255482481}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -17787,26 +17646,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1255482481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255482477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &1255482482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18443,7 +18282,6 @@ GameObject:
   - component: {fileID: 1261796495}
   - component: {fileID: 1261796491}
   - component: {fileID: 1261796490}
-  - component: {fileID: 1261796494}
   - component: {fileID: 1261796493}
   - component: {fileID: 1261796492}
   m_Layer: 5
@@ -18556,7 +18394,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1261796494}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -18568,26 +18406,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1261796494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261796489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!222 &1261796495
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18793,7 +18611,6 @@ GameObject:
   - component: {fileID: 1328853071}
   - component: {fileID: 1328853070}
   - component: {fileID: 1328853069}
-  - component: {fileID: 1328853068}
   - component: {fileID: 1328853067}
   - component: {fileID: 1328853066}
   m_Layer: 5
@@ -18852,7 +18669,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1328853068}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -18864,26 +18681,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1328853068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328853064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &1328853069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22532,7 +22329,6 @@ GameObject:
   - component: {fileID: 1577052845}
   - component: {fileID: 1577052844}
   - component: {fileID: 1577052843}
-  - component: {fileID: 1577052842}
   - component: {fileID: 1577052841}
   - component: {fileID: 1577052840}
   m_Layer: 5
@@ -22591,7 +22387,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1577052842}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillToken, Assembly-CSharp
           m_MethodName: OnBeginDrag
           m_Mode: 1
@@ -22603,26 +22399,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1577052842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577052838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a68d6e234449f4c95538744cdcdc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: 
-  damage: 0
-  atkSpeed: 0
-  isUsed: 0
-  _startPos: {x: 0, y: 0}
-  _skillNameTMP: {fileID: 0}
-  _tokenManager: {fileID: 0}
-  _canvasGroup: {fileID: 0}
 --- !u!114 &1577052843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23836,7 +23612,6 @@ GameObject:
   - component: {fileID: 1636149356}
   - component: {fileID: 1636149355}
   - component: {fileID: 1636149354}
-  - component: {fileID: 1636149353}
   m_Layer: 5
   m_Name: SlotButton_1
   m_TagString: Untagged
@@ -23864,22 +23639,6 @@ RectTransform:
   m_AnchoredPosition: {x: 499.99997, y: -250}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1636149353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636149351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a0e4d7f4027ad4f8067a8b139f6b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tokenManager: {fileID: 0}
-  _skillNameTMP: {fileID: 0}
-  _isEmpty: 1
-  _image: {fileID: 0}
 --- !u!114 &1636149354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24829,7 +24588,6 @@ GameObject:
   - component: {fileID: 1716623101}
   - component: {fileID: 1716623100}
   - component: {fileID: 1716623099}
-  - component: {fileID: 1716623098}
   m_Layer: 5
   m_Name: SlotButton_2
   m_TagString: Untagged
@@ -24857,22 +24615,6 @@ RectTransform:
   m_AnchoredPosition: {x: 833.33325, y: -250}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1716623098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716623096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a0e4d7f4027ad4f8067a8b139f6b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tokenManager: {fileID: 0}
-  _skillNameTMP: {fileID: 0}
-  _isEmpty: 1
-  _image: {fileID: 0}
 --- !u!114 &1716623099
 MonoBehaviour:
   m_ObjectHideFlags: 0
