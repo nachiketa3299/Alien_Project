@@ -15,7 +15,16 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "PrimaryAction",
+                    "name": "DodgeAction",
+                    "type": "Button",
+                    "id": "8efdacdb-22cf-4314-82d7-4291f9be266d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackAction_Primary",
                     "type": "Button",
                     "id": "baf331cf-b729-4ce1-aff4-52be2f84642f",
                     "expectedControlType": "Button",
@@ -24,18 +33,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SecondaryAction",
+                    "name": "AttackAction_Secondary",
                     "type": "Button",
                     "id": "762b5f2f-3468-4852-bf44-c243a0bc9fee",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DodgeAction",
-                    "type": "Button",
-                    "id": "8efdacdb-22cf-4314-82d7-4291f9be266d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -158,7 +158,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "SecondaryAction",
+                    "action": "AttackAction_Secondary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -169,18 +169,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "PrimaryAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d8bef367-2c3d-40e3-a886-81560378f288",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "DodgeAction",
+                    "action": "AttackAction_Primary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -216,6 +205,17 @@
                     "action": "RotateCamera",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d8bef367-2c3d-40e3-a886-81560378f288",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "DodgeAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

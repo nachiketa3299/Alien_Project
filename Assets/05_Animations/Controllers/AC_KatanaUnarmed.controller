@@ -11,20 +11,20 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1450124309621666704}
-    m_Position: {x: 130, y: 180, z: 0}
+    m_Position: {x: 70, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2756320300731213153}
-    m_Position: {x: 230, y: 260, z: 0}
+    m_Position: {x: 70, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7004025587759005761}
-    m_Position: {x: 280, y: 80, z: 0}
+    m_Position: {x: 300, y: 20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -2971859322724026280}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_AnyStatePosition: {x: 80, y: 20, z: 0}
   m_EntryPosition: {x: -50, y: 100, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -227,25 +227,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsMoving
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: RotationRatio
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsDodging
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -323,7 +323,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7441311127743876359}
-    m_Threshold: 0.5
+    m_Threshold: 0.6
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -331,7 +331,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: eb58f56f235495545afd842d9d027781, type: 3}
-    m_Threshold: 1
+    m_Threshold: 1.5
     m_Position: {x: 0, y: 0}
     m_TimeScale: 0.7
     m_CycleOffset: 0
@@ -340,7 +340,7 @@ BlendTree:
   m_BlendParameter: SpeedRatio
   m_BlendParameterY: Blend
   m_MinThreshold: 0
-  m_MaxThreshold: 1
+  m_MaxThreshold: 1.5
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
@@ -351,7 +351,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Roll
+  m_Name: Dodge
   m_Speed: 1.3
   m_CycleOffset: 0
   m_Transitions:

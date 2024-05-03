@@ -147,7 +147,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2866748620287672741}
-        m_TargetAssemblyTypeName: AlienProject.CMovementActionBase, Assembly-CSharp
+        m_TargetAssemblyTypeName: AlienProject.MovementActionBase, AlienProject
         m_MethodName: OnInput_MovementAction
         m_Mode: 0
         m_Arguments:
@@ -159,43 +159,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: b1f7d252-b14e-4a1e-8204-55d59b711fe8
-    m_ActionName: BanuPlayerControls/MovementAction[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AlienProject.CPlayerController, Assembly-CSharp
-        m_MethodName: OnPrimaryAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: baf331cf-b729-4ce1-aff4-52be2f84642f
-    m_ActionName: BanuPlayerControls/PrimaryAction[/Keyboard/c]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 742426454609238136}
-        m_TargetAssemblyTypeName: BanuPlayerController, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 762b5f2f-3468-4852-bf44-c243a0bc9fee
-    m_ActionName: BanuPlayerControls/SecondaryAction[/Keyboard/x]
+    m_ActionName: CharacterControl/MovementAction[/Keyboard/upArrow,/Keyboard/w,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2157062229205318310}
-        m_TargetAssemblyTypeName: AlienProject.CDodgeActionBase, Assembly-CSharp
+        m_TargetAssemblyTypeName: AlienProject.DodgeActionBase, AlienProject
         m_MethodName: OnInput_DodgeAction
         m_Mode: 0
         m_Arguments:
@@ -207,23 +175,43 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 8efdacdb-22cf-4314-82d7-4291f9be266d
-    m_ActionName: BanuPlayerControls/DodgeAction[/Keyboard/z]
+    m_ActionName: CharacterControl/DodgeAction[/Keyboard/z]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BanuPlayerController, Assembly-CSharp
-        m_MethodName: OnRotateCamera
-        m_Mode: 0
+      - m_Target: {fileID: 742426454609238136}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_ActionId: baf331cf-b729-4ce1-aff4-52be2f84642f
+    m_ActionName: CharacterControl/AttackAction_Primary[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 742426454609238136}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 762b5f2f-3468-4852-bf44-c243a0bc9fee
+    m_ActionName: CharacterControl/AttackAction_Secondary[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
     m_ActionId: adfb0e16-477c-4585-8a2a-b9e52559db13
-    m_ActionName: CharacterControl/New action
+    m_ActionName: CharacterControl/RotateCamera[/Keyboard/q,/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: e88c0956-af74-4fef-b0c4-1d1edd7165c8
@@ -256,6 +244,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f23ed23a-a977-470e-b2e8-d5579f68b547
     m_ActionName: UIControl/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79f03e9c-2276-4b91-b278-a7729dcab124
+    m_ActionName: UIControl/Esc[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CharacterControl
@@ -277,7 +269,6 @@ MonoBehaviour:
   _dodgeAction: {fileID: 0}
   _av_IsMoving: IsMoving
   _av_IsDodging: IsDodging
-  _av_RotationDegree: RotationDegree
   _av_RotationRatio: RotationRatio
   _av_SpeedRatio: SpeedRatio
 --- !u!114 &2866748620287672741
