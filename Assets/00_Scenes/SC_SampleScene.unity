@@ -2089,7 +2089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588131808792117676, guid: 8a32f46e2478d5a4d89aa8223805f393, type: 3}
       propertyPath: m_Name
-      value: VirtualCamera_1
+      value: P_VirtualCamera_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2475,7 +2475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588131808792117676, guid: 8a32f46e2478d5a4d89aa8223805f393, type: 3}
       propertyPath: m_Name
-      value: VirtualCamera_0
+      value: P_VirtualCamera_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2785,7 +2785,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 742426454609238136, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
       propertyPath: m_Name
-      value: PlayerCharacter
+      value: P_PlayerCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 9020148418265376553, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3986,7 +3986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588131808792117676, guid: 8a32f46e2478d5a4d89aa8223805f393, type: 3}
       propertyPath: m_Name
-      value: VirtualCamera_2
+      value: P_VirtualCamera_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8495,7 +8495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588131808792117676, guid: 8a32f46e2478d5a4d89aa8223805f393, type: 3}
       propertyPath: m_Name
-      value: VirtualCamera_3
+      value: P_VirtualCamera_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14766,7 +14766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 156220194522405496, guid: 95af77ff4c9b5df4480195779dbf12bb, type: 3}
       propertyPath: m_Name
-      value: Managers
+      value: P_Managers
       objectReference: {fileID: 0}
     - target: {fileID: 2425232294416241061, guid: 95af77ff4c9b5df4480195779dbf12bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30178,7 +30178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6408349884791897144, guid: d9c844786edc7a34fb9e1c744402e62c, type: 3}
       propertyPath: m_Name
-      value: MainCamera
+      value: P_MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
