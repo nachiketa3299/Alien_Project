@@ -7,7 +7,7 @@ namespace AlienProject
 	/// <summary>
 	/// 캐릭터의 애니메이션 관련 변수들을 계산하여, Animator 네이티브 컴포넌트에 전달하는 역할을 합니다.
 	/// </summary>
-	[RequireComponent(typeof(MovementActionBase))]
+	[RequireComponent(typeof(CMovementAction))]
 	[RequireComponent(typeof(DodgeActionBase))]
 	[AddComponentMenu("Alien Project/Character/Animation/Animator Component")]
 	public class CAnimator : MonoBehaviour
@@ -16,7 +16,7 @@ namespace AlienProject
 
 		[Header("필요한 캐릭터 컴포넌트")]
 		[SerializeField]
-		private MovementActionBase _movementAction;
+		private CMovementAction _movementAction;
 		[SerializeField]
 		private DodgeActionBase _dodgeAction;
 
@@ -64,7 +64,7 @@ namespace AlienProject
 
 		private void Awake()
 		{
-			_movementAction = GetComponent<MovementActionBase>();
+			_movementAction = GetComponent<CMovementAction>();
 			_dodgeAction = GetComponent<DodgeActionBase>();
 
 			if (!_dodgeAction.AllowMovementActionWhileDodging)
@@ -110,7 +110,7 @@ namespace AlienProject
 			}
 
 			_targetAnimator.SetBool(_av_IsMoving, _movementAction.IsMoving);
-			_targetAnimator.SetFloat(_av_SpeedRatio, _movementAction.SpeedRatio);
+			_targetAnimator.SetFloat(_av_SpeedRatio, _movementAction.MovementSpeedRatio);
 			//_targetAnimator.SetFloat(_av_RotationDegree, RotationDegree);
 			_targetAnimator.SetFloat(_av_RotationRatio, RotationDegree / 180f);
 		}
