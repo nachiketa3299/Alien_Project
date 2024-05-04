@@ -61,13 +61,7 @@ namespace AlienProject
 		public bool IsMoving => MovementSpeed > 0f;
 		public bool IsGrounded => _characterController.isGrounded;
 		public bool IsPlayerDesiredToMove => _rawMovementInput != Vector3.zero;
-		public void DisableMovement() => _isMovementDisabled = true;
-		public void EnableMovement() => _isMovementDisabled = false;
-		public ETurningState turningState = ETurningState.None;
 
-		private Vector3 _movementVelocity;
-		private bool _isMovementDisabled = false;
-		private Vector3 _rawMovementInput;
 
 		// [0f, 180f] 사이 값 반환
 		private float AngleDiffForwardAndMovement
@@ -85,8 +79,15 @@ namespace AlienProject
 				}
 			}
 		}
-		private float _turningStateThreshold = 10f;
 		private bool NeedToRotate => AngleDiffForwardAndMovement > _turningStateThreshold;
+
+		// MARK: Members
+
+		public ETurningState turningState = ETurningState.None;
+		private Vector3 _movementVelocity;
+		private bool _isMovementDisabled = false;
+		private Vector3 _rawMovementInput;
+		private float _turningStateThreshold = 10f;
 
 
 
@@ -159,6 +160,10 @@ namespace AlienProject
 		#endregion // Unity Events
 
 		// MARK: Methods
+
+		public void DisableMovement() => _isMovementDisabled = true;
+
+		public void EnableMovement() => _isMovementDisabled = false;
 
 		private void Move()
 		{
