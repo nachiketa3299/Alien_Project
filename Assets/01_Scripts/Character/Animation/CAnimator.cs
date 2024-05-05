@@ -34,6 +34,7 @@ namespace AlienProject
 		[SerializeField] private string _av_RotationRatio = "RotationRatio";
 
 		[SerializeField] private string _av_SpeedRatio = "SpeedRatio";
+		[SerializeField] private string _av_IsTurning = "IsTurning";
 
 		// MARK: Animation Hashes
 
@@ -41,6 +42,7 @@ namespace AlienProject
 		private int _isDodgingHash;
 		private int _rotationRatioHash;
 		private int _speedRatioHash;
+		private int _isTurningHash;
 
 		// MARK: Memebrs
 
@@ -99,6 +101,7 @@ namespace AlienProject
 			// _rotationDegreeHash = Animator.StringToHash(_av_RotationDegree);
 			_rotationRatioHash = Animator.StringToHash(_av_RotationRatio);
 			_speedRatioHash = Animator.StringToHash(_av_SpeedRatio);
+			_isTurningHash = Animator.StringToHash(_av_IsTurning);
 		}
 
 		// MARK: Methods
@@ -119,6 +122,7 @@ namespace AlienProject
 			_targetAnimator.SetFloat(_speedRatioHash, _movementAction.MovementSpeedRatio);
 			//_targetAnimator.SetFloat(_rotationDegreeHash, RotationDegree);
 			_targetAnimator.SetFloat(_rotationRatioHash, RotationDegree / 180f);
+			_targetAnimator.SetBool(_isTurningHash, _movementAction.IsTurning);
 		}
 
 		/// <summary>

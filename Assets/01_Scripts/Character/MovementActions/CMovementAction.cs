@@ -1,7 +1,10 @@
 // 2024-04-25 RZN
 
+#pragma warning disable 0649
+
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 namespace AlienProject
 {
@@ -36,6 +39,7 @@ namespace AlienProject
 		[SerializeField] private float _rotationSpeed = 8f;
 		[SerializeField] private float _movementStopThresholdSpeed = 0.1f;
 		[SerializeField] private bool _applyGravity = true;
+		[SerializeField] private bool _idleTurning = false;
 
 		[Header("가속도와 감속도 설정")]
 
@@ -66,6 +70,7 @@ namespace AlienProject
 		public bool IsMoving => MovementSpeed > 0f;
 		public bool IsGrounded => _characterController.isGrounded;
 		public bool IsPlayerDesiredToMove => _rawMovementInput != Vector3.zero;
+		public bool IsTurning => _turningState == ETurningState.Turning;
 
 
 		// [0f, 180f] 사이 값 반환
@@ -133,6 +138,7 @@ namespace AlienProject
 		{
 			if (IsMoving)
 			{
+				// TODO Moving 의 경우 이미 IsMoving이 테스트하고 있으므로 열거형이 불필요
 				_movingState = EMovingState.Moving;
 				_turningState = NeedToRotate ? ETurningState.Turning : ETurningState.None;
 			}
@@ -175,9 +181,12 @@ namespace AlienProject
 				_accelerationDirection = TranslatedMovementInput;
 				_decelerationDirection = Vector3.zero;
 
-				if (NeedToRotate && !IsMoving)
+				if (_idleTurning) // NOTE Idle Turn을 나중에 구현하기 위해 남겨둚
 				{
-					return;
+					if (NeedToRotate && !IsMoving)
+					{
+						return;
+					}
 				}
 
 				_movementVelocity += Acceleration * Time.deltaTime;
@@ -228,7 +237,7 @@ namespace AlienProject
 					(
 						transform.rotation,
 						Quaternion.LookRotation(_accelerationDirection),
-						_rotationSpeed * Time.deltaTime
+						_rotationSpeed * 2 * Time.deltaTime
 					);
 				}
 
