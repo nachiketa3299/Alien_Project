@@ -1,6 +1,6 @@
 // 2024-04-25 RZN
 
-#pragma warning disable 0649
+#pragma warning disable 0414
 
 using UnityEngine;
 using UnityEngine.InputSystem;
