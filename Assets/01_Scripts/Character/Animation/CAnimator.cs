@@ -7,7 +7,7 @@ namespace AlienProject
 	/// <summary>
 	/// 캐릭터의 애니메이션 관련 변수들을 계산하여, Animator 네이티브 컴포넌트에 전달하는 역할을 합니다.
 	/// </summary>
-	[RequireComponent(typeof(MovementActionBase))]
+	[RequireComponent(typeof(CMovementAction))]
 	[RequireComponent(typeof(DodgeActionBase))]
 	[AddComponentMenu("Alien Project/Character/Animation/Animator Component")]
 	public class CAnimator : MonoBehaviour
@@ -16,7 +16,7 @@ namespace AlienProject
 
 		[Header("필요한 캐릭터 컴포넌트")]
 		[SerializeField]
-		private MovementActionBase _movementAction;
+		private CMovementAction _movementAction;
 		[SerializeField]
 		private DodgeActionBase _dodgeAction;
 
@@ -25,25 +25,27 @@ namespace AlienProject
 		[Header("애니메이션 변수 이름 - 애니메이션 컨트롤러에 정의되어 있어야 합니다.")]
 		// NOTE av 는 animation variable의 약자입니다.
 
-		[SerializeField]
-		private string _av_IsMoving = "IsMoving";
+		[SerializeField] private string _av_IsMoving = "IsMoving";
 
-		[SerializeField]
-		private string _av_IsDodging = "IsDodging";
+		[SerializeField] private string _av_IsDodging = "IsDodging";
 
 		// private string _av_RotationDegree = "RotationDegree";
 
-		[SerializeField]
-		private string _av_RotationRatio = "RotationRatio";
+		[SerializeField] private string _av_RotationRatio = "RotationRatio";
 
-		[SerializeField]
-		private string _av_SpeedRatio = "SpeedRatio";
+		[SerializeField] private string _av_SpeedRatio = "SpeedRatio";
+		[SerializeField] private string _av_IsTurning = "IsTurning";
+
+		// MARK: Animation Hashes
+
+		private int _isMovingHash;
+		private int _isDodgingHash;
+		private int _rotationRatioHash;
+		private int _speedRatioHash;
+		private int _isTurningHash;
 
 		// MARK: Memebrs
 
-		/// <summary>
-		/// 애니메이션 변수를 전달할 타겟 애니메이터입니다. 이 컴포넌트와 같은 오브젝트에 존재하지 않습니다.
-		/// </summary>
 		private Animator _targetAnimator;
 
 		// MARK: Properties
@@ -64,7 +66,7 @@ namespace AlienProject
 
 		private void Awake()
 		{
-			_movementAction = GetComponent<MovementActionBase>();
+			_movementAction = GetComponent<CMovementAction>();
 			_dodgeAction = GetComponent<DodgeActionBase>();
 
 			if (!_dodgeAction.AllowMovementActionWhileDodging)
@@ -76,7 +78,7 @@ namespace AlienProject
 			InitializeTargetAnimator();
 		}
 
-		private void Update()
+		private void LateUpdate()
 		{
 			UpdateAnimationVariables();
 		}
@@ -93,6 +95,13 @@ namespace AlienProject
 			}
 
 			_targetAnimator.applyRootMotion = false;
+
+			_isMovingHash = Animator.StringToHash(_av_IsMoving);
+			_isDodgingHash = Animator.StringToHash(_av_IsDodging);
+			// _rotationDegreeHash = Animator.StringToHash(_av_RotationDegree);
+			_rotationRatioHash = Animator.StringToHash(_av_RotationRatio);
+			_speedRatioHash = Animator.StringToHash(_av_SpeedRatio);
+			_isTurningHash = Animator.StringToHash(_av_IsTurning);
 		}
 
 		// MARK: Methods
@@ -109,10 +118,11 @@ namespace AlienProject
 				return;
 			}
 
-			_targetAnimator.SetBool(_av_IsMoving, _movementAction.IsMoving);
-			_targetAnimator.SetFloat(_av_SpeedRatio, _movementAction.SpeedRatio);
-			//_targetAnimator.SetFloat(_av_RotationDegree, RotationDegree);
-			_targetAnimator.SetFloat(_av_RotationRatio, RotationDegree / 180f);
+			_targetAnimator.SetBool(_isMovingHash, _movementAction.IsMoving);
+			_targetAnimator.SetFloat(_speedRatioHash, _movementAction.MovementSpeedRatio);
+			//_targetAnimator.SetFloat(_rotationDegreeHash, RotationDegree);
+			_targetAnimator.SetFloat(_rotationRatioHash, RotationDegree / 180f);
+			_targetAnimator.SetBool(_isTurningHash, _movementAction.IsTurning);
 		}
 
 		/// <summary>
@@ -131,7 +141,7 @@ namespace AlienProject
 			}
 			Debug.Log("[CAnimator] EnterDodgeState");
 
-			_targetAnimator.SetTrigger(_av_IsDodging);
+			_targetAnimator.SetTrigger(_isDodgingHash);
 			_targetAnimator.applyRootMotion = true;
 		}
 

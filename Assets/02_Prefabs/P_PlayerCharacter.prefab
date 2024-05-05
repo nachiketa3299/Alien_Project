@@ -47,8 +47,8 @@ GameObject:
   - component: {fileID: 1572096859405845389}
   - component: {fileID: 8072502032303850344}
   - component: {fileID: 6412594264506971537}
-  - component: {fileID: 2866748620287672741}
   - component: {fileID: 2157062229205318310}
+  - component: {fileID: 8802269630046640148}
   m_Layer: 0
   m_Name: P_PlayerCharacter
   m_TagString: Player
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2866748620287672741}
-        m_TargetAssemblyTypeName: AlienProject.MovementActionBase, AlienProject
+      - m_Target: {fileID: 8802269630046640148}
+        m_TargetAssemblyTypeName: AlienProject.CMovementAction, AlienProject
         m_MethodName: OnInput_MovementAction
         m_Mode: 0
         m_Arguments:
@@ -271,27 +271,6 @@ MonoBehaviour:
   _av_IsDodging: IsDodging
   _av_RotationRatio: RotationRatio
   _av_SpeedRatio: SpeedRatio
---- !u!114 &2866748620287672741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742426454609238136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d175952a41d91b488a555ecb4d11dc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxSpeed: 5
-  _rotationSpeed: 5
-  _movementStopThresholdSpeed: 0.1
-  _applyGravity: 1
-  EnableDraw: 1
-  PositionTrailDrawDuration: 5
-  RayDrawDuration: 0
-  _accelerationMagnitude: 15
-  _decelerationMagnitude: 20
 --- !u!114 &2157062229205318310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +290,28 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AllowMovementActionWhileDodging: 0
+--- !u!114 &8802269630046640148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742426454609238136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cebfdf028e8f4a44ea41f23d135ccdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxSpeed: 5
+  _rotationSpeed: 5
+  _movementStopThresholdSpeed: 0.1
+  _applyGravity: 1
+  _accelerationMagnitude: 15
+  _decelerationMagnitude: 20
+  EnableDraw: 1
+  DrawScale: 1
+  PositionTrailDrawDuration: 5
+  RayDrawDuration: 0
 --- !u!1 &8441565779195062132
 GameObject:
   m_ObjectHideFlags: 0

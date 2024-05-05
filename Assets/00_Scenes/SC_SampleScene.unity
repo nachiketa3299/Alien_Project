@@ -2787,6 +2787,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1765247092}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1765247085}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnInput_MovementAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnInput_DodgeAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072502032303850344, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AlienProject.CMovementAction, AlienProject
+      objectReference: {fileID: 0}
     - target: {fileID: 9020148418265376553, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4781952
@@ -2827,7 +2847,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2866748620287672741, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -23927,6 +23948,28 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &1765247085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2157062229205318310, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+  m_PrefabInstance: {fileID: 321096772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b07ebfbec5f9643a9a554aa87feafd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1765247092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8802269630046640148, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+  m_PrefabInstance: {fileID: 321096772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cebfdf028e8f4a44ea41f23d135ccdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1823486835
 GameObject:
   m_ObjectHideFlags: 0
