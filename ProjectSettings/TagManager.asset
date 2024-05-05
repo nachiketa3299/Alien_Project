@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - VirtualCamera
+  - CharacterAppearance
+  - Enemy
+  - PlayerWeapon
   layers:
   - Default
   - TransparentFX
