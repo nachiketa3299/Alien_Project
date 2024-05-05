@@ -6,8 +6,7 @@ TagManager:
   tags:
   - VirtualCamera
   - CharacterAppearance
-  - Enemy
-  - PlayerWeapon
+  - WeaponSocket
   layers:
   - Default
   - TransparentFX
