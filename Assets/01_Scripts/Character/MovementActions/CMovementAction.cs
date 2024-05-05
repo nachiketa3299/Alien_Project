@@ -14,11 +14,16 @@ namespace AlienProject
 	[AddComponentMenu("Alien Project/Character/Movement Action Component")]
 	public partial class CMovementAction : MonoBehaviour
 	{
+		public enum EMovingState
+		{
+			Idle,
+			Moving
+		}
+
 		public enum ETurningState
 		{
 			None,
-			IdleTurning,
-			MovingTurning
+			Turning
 		}
 
 		private CharacterController _characterController;
@@ -28,7 +33,7 @@ namespace AlienProject
 		[Header("기본 이동 설정")]
 
 		[SerializeField] private float _maxSpeed = 5f;
-		[SerializeField] private float _rotationSpeed = 5f;
+		[SerializeField] private float _rotationSpeed = 8f;
 		[SerializeField] private float _movementStopThresholdSpeed = 0.1f;
 		[SerializeField] private bool _applyGravity = true;
 
@@ -83,13 +88,14 @@ namespace AlienProject
 
 		// MARK: Members
 
-		public ETurningState turningState = ETurningState.None;
+		// Movement States
+		private ETurningState _turningState = ETurningState.None;
+		private EMovingState _movingState = EMovingState.Idle;
+
 		private Vector3 _movementVelocity;
 		private bool _isMovementDisabled = false;
 		private Vector3 _rawMovementInput;
 		private float _turningStateThreshold = 10f;
-
-
 
 		#region Unity Events
 
@@ -119,7 +125,7 @@ namespace AlienProject
 
 			if (_applyGravity)
 			{
-				ApplyGravity();
+				TryApplyGravity();
 			}
 		}
 
@@ -127,24 +133,20 @@ namespace AlienProject
 		{
 			if (IsMoving)
 			{
-				if (NeedToRotate)
-				{
-					turningState = ETurningState.MovingTurning;
-				}
-				else
-				{
-					turningState = ETurningState.None;
-				}
+				_movingState = EMovingState.Moving;
+				_turningState = NeedToRotate ? ETurningState.Turning : ETurningState.None;
 			}
 			else
 			{
-				if (NeedToRotate)
+				_movingState = EMovingState.Idle;
+
+				if (!IsPlayerDesiredToMove)
 				{
-					turningState = ETurningState.IdleTurning;
+					_turningState = ETurningState.None;
 				}
 				else
 				{
-					turningState = ETurningState.None;
+					_turningState = NeedToRotate ? ETurningState.Turning : ETurningState.None;
 				}
 			}
 		}
@@ -173,7 +175,7 @@ namespace AlienProject
 				_accelerationDirection = TranslatedMovementInput;
 				_decelerationDirection = Vector3.zero;
 
-				if (turningState == ETurningState.IdleTurning)
+				if (NeedToRotate && !IsMoving)
 				{
 					return;
 				}
@@ -212,6 +214,7 @@ namespace AlienProject
 		}
 		private void Rotate()
 		{
+			// TODO 감속도가 매우 적은 경우에 이게 말이 되는지 테스트
 			if (!IsPlayerDesiredToMove)
 			{
 				return;
@@ -219,7 +222,7 @@ namespace AlienProject
 
 			if (!IsMoving)
 			{
-				if (transform.forward != _accelerationDirection)
+				if (NeedToRotate)
 				{
 					transform.rotation = Quaternion.Slerp
 					(
@@ -228,6 +231,7 @@ namespace AlienProject
 						_rotationSpeed * Time.deltaTime
 					);
 				}
+
 				return;
 			}
 
@@ -271,7 +275,7 @@ namespace AlienProject
 		}
 
 
-		private void ApplyGravity()
+		private void TryApplyGravity()
 		{
 			if (IsGrounded)
 			{

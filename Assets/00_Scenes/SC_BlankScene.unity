@@ -1335,6 +1335,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 1572096859405845389, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 09142d73f81f26642a9e0830b00f44a9, type: 2}
+    - target: {fileID: 1572096859405845389, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812375860807211556, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9020148418265376553, guid: 1f739aad16e57214d9aa154fc1187b2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
