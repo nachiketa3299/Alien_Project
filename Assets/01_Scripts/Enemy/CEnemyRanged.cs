@@ -12,7 +12,7 @@ namespace AlienProject
 	[AddComponentMenu("Alien Project/Enemy/Ranged Enemy Component")]
 	public class CEnemyRanged : EnemyBase
 	{
-		private CEnemyFOV _fieldOfView;
+		private CVision _fieldOfView;
 		private Transform _followTr = null;
 		[SerializeField] private GameObject _projectile;
 		[SerializeField] private float _shootPower = 1f;
@@ -24,12 +24,13 @@ namespace AlienProject
 		private Transform _target;
 		private Coroutine _shootCoroutine;
 
-		public override void Awake()
+		protected override void Awake()
 		{
 			base.Awake();
-			_fieldOfView = GetComponentInChildren<CEnemyFOV>();
-			_fieldOfView.FindTargetEvent += StartShoot;
-			_fieldOfView.TargetEnmptyEvent += StopFollow;
+
+			_fieldOfView = GetComponentInChildren<CVision>();
+			// _fieldOfView.OnTrackingTargetDetected += StartShoot;
+			// _fieldOfView.OnTargetEmpty += StopFollow;
 		}
 
 		private void FixedUpdate()
