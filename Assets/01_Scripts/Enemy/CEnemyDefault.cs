@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AlienProject
@@ -8,17 +5,23 @@ namespace AlienProject
 	[AddComponentMenu("Alien Project/Enemy/Default Enemy Component")]
 	public class CEnemyDefault : EnemyBase
 	{
-		private CEnemyFOV _fieldOfView;
+
+		// MARK: Component Caching
+		private CVision _fieldOfView;
+
+		// MARK: Members
 		private Transform _target = null;
 		private EEnemyState _state = EEnemyState.Idle;
 
-		public override void Awake()
+		#region Unity Callbacks
+
+		protected override void Awake()
 		{
 			base.Awake();
 
-			_fieldOfView = GetComponentInChildren<CEnemyFOV>();
-			_fieldOfView.FindTargetEvent += StartFollow;
-			_fieldOfView.TargetEnmptyEvent += StopFollow;
+			_fieldOfView = GetComponentInChildren<CVision>();
+			// _fieldOfView.OnTrackingTargetDetected += StartFollow;
+			// _fieldOfView.OnTargetEmpty += StopFollow;
 		}
 
 		private void Update()
@@ -53,6 +56,8 @@ namespace AlienProject
 				this._target = target;
 			}
 		}
+
+		#endregion // Unity Callbacks
 
 		private void StopFollow(Transform tr)
 		{

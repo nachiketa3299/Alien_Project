@@ -45,10 +45,12 @@ GameObject:
   - component: {fileID: 3200377245682318762}
   - component: {fileID: 1572096859405845389}
   - component: {fileID: 8072502032303850344}
+  - component: {fileID: 5121452283571671547}
+  - component: {fileID: 987457122847655456}
   - component: {fileID: 6412594264506971537}
   - component: {fileID: 2157062229205318310}
   - component: {fileID: 8802269630046640148}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_PlayerCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -145,8 +147,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8802269630046640148}
-        m_TargetAssemblyTypeName: AlienProject.CMovementAction, AlienProject
+      - m_Target: {fileID: 5121452283571671547}
+        m_TargetAssemblyTypeName: AlienProject.CPlayerCharacterController, AlienProject
         m_MethodName: OnInput_MovementAction
         m_Mode: 0
         m_Arguments:
@@ -244,7 +246,19 @@ MonoBehaviour:
     m_ActionId: f23ed23a-a977-470e-b2e8-d5579f68b547
     m_ActionName: UIControl/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CUIManager, Assembly-CSharp
+        m_MethodName: ToggleActionSetUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 79f03e9c-2276-4b91-b278-a7729dcab124
     m_ActionName: UIControl/Esc[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
@@ -252,6 +266,30 @@ MonoBehaviour:
   m_DefaultActionMap: CharacterControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5121452283571671547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742426454609238136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56bcd1186159b848932b8ead5b53cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &987457122847655456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742426454609238136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487766d58b2a02e48954161d2dc4c6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6412594264506971537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,16 +341,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 5
+  _applyGravity: 1
   _rotationSpeed: 5
   _movementStopThresholdSpeed: 0.1
-  _applyGravity: 1
   _idleTurning: 0
   _accelerationMagnitude: 15
   _decelerationMagnitude: 20
-  EnableDraw: 1
-  DrawScale: 1
-  PositionTrailDrawDuration: 5
-  RayDrawDuration: 0
 --- !u!1 &8441565779195062132
 GameObject:
   m_ObjectHideFlags: 0

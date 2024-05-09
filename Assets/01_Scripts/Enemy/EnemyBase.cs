@@ -1,14 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using AlienProject;
 using Redcode.Pools;
 using TMPro;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering.VirtualTexturing;
 using Random = UnityEngine.Random;
 
 
@@ -36,7 +32,9 @@ namespace AlienProject
 
 	public delegate void HitDelegate();
 
-	public abstract class EnemyBase : MonoBehaviour
+	[DisallowMultipleComponent]
+	[RequireComponent(typeof(NavMeshAgent))]
+	public abstract class EnemyBase : PawnBase
 	{
 		[Header("필수 기본 구조")]
 
@@ -48,7 +46,7 @@ namespace AlienProject
 		public EEnemyAttackType _AttackType;
 
 		protected Vector3 moveDir;
-		[SerializeField] public Transform _playerTR;
+		public Transform _playerTR;
 
 		[HideInInspector] public NavMeshAgent _agent;
 		private Renderer _renderer;
@@ -60,17 +58,20 @@ namespace AlienProject
 		/// <summary>
 		/// 피격 당했을때 Event 
 		/// </summary>
-		public event HitDelegate hitEvent;
+		public event HitDelegate HitEvent;
 
-		public virtual void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
 			// _playerTR = CPlayerController._cPlayerController.transform;
 			//_agent = GetComponent<NavMeshAgent>();
+
 			_renderer = GetComponent<Renderer>();
 			_rigidbody = GetComponent<Rigidbody>();
 			_defaultColor = _renderer.material.color;
 			_agent = GetComponent<NavMeshAgent>();
 			_agent.speed = moveSpeed;
+
 			InitializeEnemey();
 		}
 
@@ -85,6 +86,7 @@ namespace AlienProject
 
 		private void SetAgentPorperty()
 		{
+			throw new System.NotImplementedException();
 		}
 
 		public void Hit(float damage)
@@ -100,8 +102,8 @@ namespace AlienProject
 			/*_nuckBackDir = -_agent.velocity;
 			NuckBack(1);*/
 
-			if (hitEvent != null)
-				hitEvent();
+			if (HitEvent != null)
+				HitEvent();
 			else
 			{
 				Debug.LogError("Enemy : hit Event가 없습니다. 응 사실 없어도됨.");
@@ -122,7 +124,7 @@ namespace AlienProject
 			_agent.SetDestination(_playerTR.position);
 		}
 
-		public void NuckBack(int force)
+		public void KnockBack(int force)
 		{
 			_rigidbody.AddForce(_nuckBackDir * force, ForceMode.Impulse);
 		}
@@ -134,7 +136,7 @@ namespace AlienProject
 			_renderer.material.color = _defaultColor;
 		}
 
-		public float[] GetRandomPos()
+		public float[] GetRandomPosition()
 		{
 			float[] arr = new float[2];
 			arr[0] = Random.Range(0, 10);
@@ -152,7 +154,7 @@ namespace AlienProject
 		public void OnGettingFromPool()
 		{
 			Debug.Log("OnGettingFromPool");
-			float[] arr = GetRandomPos();
+			float[] arr = GetRandomPosition();
 			this.transform.position = new Vector3(arr[0], 0, arr[1]);
 		}
 
