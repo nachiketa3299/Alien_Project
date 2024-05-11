@@ -5,66 +5,79 @@ using UnityEngine;
 
 namespace AlienProject
 {
-    [AddComponentMenu("Alien Project/Enemy/Default Enemy Component")]
-    public class CEnemyDefault : EnemyBase
-    {
-        private CEnemyFOV _fieldOfView;
-        private Transform _target = null;
-        private EEnemyState _state = EEnemyState.Idle;
+	[AddComponentMenu("Alien Project/Enemy/Default Enemy Component")]
+	public class CEnemyDefault : EnemyBase
+	{
 
-        public override void Awake()
-        {
-            base.Awake();
+		// MARK: Component Caching
+		private CVision _fieldOfView;
 
-            _fieldOfView = GetComponentInChildren<CEnemyFOV>();
-            _fieldOfView.FindTargetEvent += StartFollow;
-            _fieldOfView.TargetEnmptyEvent += StopFollow;
-        }
+		// MARK: Members
+		private Transform _target = null;
+		private EEnemyState _state = EEnemyState.Idle;
 
-        private void Update()
-        {
-            switch (_state)
-            {
-                case EEnemyState.Idle:
-                {
-                    _agent.isStopped = true;
-                    break;
-                }
-                case EEnemyState.Move:
-                {
-                    _agent.SetDestination(_target.position);
-                    break;
-                }
-                case EEnemyState.Patrol:
-                {
-                    break;
-                }
-            }
-        }
+		#region Unity Callbacks
 
-        private void StartFollow(Transform target)
-        {
-            Debug.Log("StartFollow");
+		protected override void Awake()
+		{
+			base.Awake();
 
-            if (this._target != target)
-            {
-                _agent.isStopped = false;
-                _state = EEnemyState.Move;
-                this._target = target;
-            }
-        }
+			_fieldOfView = GetComponentInChildren<CVision>();
+			// _fieldOfView.OnTrackingTargetDetected += StartFollow;
+			// _fieldOfView.OnTargetEmpty += StopFollow;
+		}
 
-        private void StopFollow(Transform tr)
-        {
-            Debug.Log("StopFollow");
+		private void Update()
+		{
+			switch (_state)
+			{
+				case EEnemyState.Idle:
+					{
+						_agent.isStopped = true;
+						break;
+					}
+				case EEnemyState.Move:
+					{
+						_agent.SetDestination(_target.position);
+						break;
+					}
+				case EEnemyState.Patrol:
+					{
+						break;
+					}
+			}
+		}
 
-            _agent.isStopped = true;
-            _state = EEnemyState.Idle;
-            this._target = null;
-        }
+		private void StartFollow(Transform target)
+		{
+			Debug.Log("StartFollow");
 
-        public override void InitializeEnemey()
-        {
-        }
-    } // class E_Default
+			if (this._target != target)
+			{
+				_agent.isStopped = false;
+				_state = EEnemyState.Move;
+				this._target = target;
+			}
+		}
+
+		#endregion // Unity Callbacks
+
+		private void StopFollow(Transform tr)
+		{
+			Debug.Log("StopFollow");
+
+			_agent.isStopped = true;
+			_state = EEnemyState.Idle;
+			this._target = null;
+		}
+
+		public override void InitializeEnemey()
+		{
+		}
+
+		public override void OnDrawGizmos()
+		{
+		}
+
+	} // class E_Default
 } // namespace AlienProject
