@@ -152,7 +152,7 @@ namespace AlienProject
             if (_currentState.Hp < 0 || isDie)
                 Die();
 
-            CUIManager.UIManager.GeneratePopUP(1, this.transform.position);
+            CUIManager.UIManager.GeneratePopUP(damage, this.transform.position);
             StartCoroutine(SetColorAnimation());
 
             hitEvent?.Invoke();
