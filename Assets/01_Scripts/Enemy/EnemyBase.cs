@@ -16,27 +16,58 @@ using Random = UnityEngine.Random;
 
 namespace AlienProject
 {
-	public enum EEnemyType
-	{
-		Walkable,
-		Fix,
-		Jumpable
-	}
+    public enum EEnemyType
+    {
+        Walkable,
+        Fix,
+        Jumpable
+    }
 
-	public enum EEnemyAttackType
-	{
-		Melee,
-		Range,
-	}
+    public enum EEnemyAttackType
+    {
+        Melee,
+        Range,
+    }
 
-	public enum EEnemyState
-	{
-		Idle,
-		Move,
-		Patrol
-	}
+    public enum EEnemyState
+    {
+        Idle,
+        Move,
+        Patrol
+    }
 
-	public delegate void HitDelegate();
+    [Serializable]
+    public struct AttackInfo
+    {
+        public float Power;
+        public float Bleeding;
+        public float Sleeping;
+    }
+
+    /// <summary>
+    /// 현재 적의 추가 상태 정보
+    /// 상태이상 수치, 속성 수치
+    /// </summary>
+    [System.Serializable]
+    public struct EEnemyCurrentState
+    {
+        public float Damage;
+        public float Hp;
+        public float MoveSpeed;
+        public float Bleeding;
+        public float Sleeping;
+    }
+
+    [System.Serializable]
+    public struct MaxState
+    {
+        public float MaxHp;
+        public float MaxMoveSpeed;
+        public float MaxBleeding;
+        public float MaxSleeping;
+    }
+
+    public delegate void HitDelegate();
 
     public abstract class EnemyBase : MonoBehaviour
     {
@@ -92,10 +123,9 @@ namespace AlienProject
         }
         */
 
-		private void SetAgentPorperty()
-		{
-			throw new System.NotImplementedException();
-		}
+        private void SetAgentPorperty()
+        {
+        }
 
         public void Hit(float damage)
         {
@@ -103,8 +133,8 @@ namespace AlienProject
             if (_currentState.Hp < 0)
                 Die();
 
-			CUIManager.UIManager.GeneratePopUP(1, this.transform.position);
-			StartCoroutine(SetColorAnimation());
+            CUIManager.UIManager.GeneratePopUP(1, this.transform.position);
+            StartCoroutine(SetColorAnimation());
 
             //기본 Kinematic이라 일단 보류
             /*_nuckBackDir = -_agent.velocity;
@@ -151,12 +181,6 @@ namespace AlienProject
                 return true;
             }
 
-			if (HitEvent != null)
-				HitEvent();
-			else
-			{
-				Debug.LogError("Enemy : hit Event가 없습니다. 응 사실 없어도됨.");
-			}
             if (_maxState.MaxSleeping <= _currentState.Sleeping)
             {
                 Debug.Log("<color=red>Sleeping</color>");
@@ -186,10 +210,10 @@ namespace AlienProject
             _agent.SetDestination(_playerTR.position);
         }
 
-		public void KnockBack(int force)
-		{
-			_rigidbody.AddForce(_nuckBackDir * force, ForceMode.Impulse);
-		}
+        public void NuckBack(int force)
+        {
+            _rigidbody.AddForce(_nuckBackDir * force, ForceMode.Impulse);
+        }
 
         public IEnumerator SetColorAnimation()
         {
@@ -198,33 +222,28 @@ namespace AlienProject
             _renderer.material.color = _defaultColor;
         }
 
-		public float[] GetRandomPosition()
-		{
-			float[] arr = new float[2];
-			arr[0] = Random.Range(0, 10);
-			arr[1] = Random.Range(0, 10);
-			return arr;
-		}
+        public float[] GetRandomPos()
+        {
+            float[] arr = new float[2];
+            arr[0] = Random.Range(0, 10);
+            arr[1] = Random.Range(0, 10);
+            return arr;
+        }
 
-		#region Pooling
+        #region Pooling
 
-		public void OnCreatedInPool()
-		{
-			Debug.Log("OnCreatedInPool");
-		}
+        public void OnCreatedInPool()
+        {
+            Debug.Log("OnCreatedInPool");
+        }
 
-		public void OnGettingFromPool()
-		{
-			Debug.Log("OnGettingFromPool");
-			float[] arr = GetRandomPosition();
-			this.transform.position = new Vector3(arr[0], 0, arr[1]);
-		}
+        public void OnGettingFromPool()
+        {
+            Debug.Log("OnGettingFromPool");
+            float[] arr = GetRandomPos();
+            this.transform.position = new Vector3(arr[0], 0, arr[1]);
+        }
 
-		#endregion // Pooling
-
-		public virtual void OnDrawGizmos()
-		{
-		}
-
-	} // class EnemyBase
+        #endregion // Pooling
+    } // class EnemyBase
 } // namespace AlienProject
