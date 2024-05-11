@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 807857867464069288}
   - component: {fileID: 6692054769692597362}
+  - component: {fileID: 4376307387018756847}
   m_Layer: 0
   m_Name: P_BladerWeapon
   m_TagString: Untagged
@@ -53,3 +54,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.22362304, y: 0.9697521, z: 0.21759033}
   m_Center: {x: 0, y: 0.6385728, z: -0.02576232}
+--- !u!114 &4376307387018756847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853778853302522599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b20b8f8cbd9db4c830bfb401fce5d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

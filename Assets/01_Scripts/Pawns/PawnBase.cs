@@ -5,7 +5,6 @@ namespace AlienProject
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(MovementActionBase))]
 	[RequireComponent(typeof(CHealthPoint))]
-	[Icon("Assets/Editor/Icons/PawnBase.png")]
 	public abstract class PawnBase : MonoBehaviour, IDamageable
 	{
 		// MARK: Component Caching
