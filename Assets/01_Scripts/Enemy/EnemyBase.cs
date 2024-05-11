@@ -35,36 +35,7 @@ namespace AlienProject
 		Move,
 		Patrol
 	}
-	[Serializable]
-	public struct AttackInfo
-	{
-		public float Power;
-		public float Bleeding;
-		public float Sleeping;
-	}
-	
-	/// <summary>
-	/// 현재 적의 추가 상태 정보
-	/// 상태이상 수치, 속성 수치
-	/// </summary>
-	[System.Serializable]
-	public struct EEnemyCurrentState
-	{
-		public float Damage;
-		public float Hp;
-		public float MoveSpeed;
-		public float Bleeding;
-		public float Sleeping;
-	}
 
-	[System.Serializable]
-	public struct MaxState
-	{
-		public float MaxHp;
-		public float MaxMoveSpeed;
-		public float MaxBleeding;
-		public float MaxSleeping;
-	}
 	public delegate void HitDelegate();
 
     public abstract class EnemyBase : MonoBehaviour
@@ -91,9 +62,9 @@ namespace AlienProject
         /// <summary>
         /// 피격 당했을때 Event 
         /// </summary>
-        public event HitDelegate HitEvent;
+        public event HitDelegate hitEvent;
 
-        protected virtual void Awake()
+        public virtual void Awake()
         {
             // _playerTR = CPlayerController._cPlayerController.transform;
             //_agent = GetComponent<NavMeshAgent>();
@@ -138,7 +109,7 @@ namespace AlienProject
             //기본 Kinematic이라 일단 보류
             /*_nuckBackDir = -_agent.velocity;
             NuckBack(1);*/
-            HitEvent?.Invoke();
+            hitEvent?.Invoke();
 
             Debug.Log("<color=orange>Enemey Hit  </color>" + _currentState.Hp);
         }
@@ -154,7 +125,7 @@ namespace AlienProject
             CUIManager.UIManager.GeneratePopUP(damage, this.transform.position);
             StartCoroutine(SetColorAnimation());
 
-            HitEvent?.Invoke();
+            hitEvent?.Invoke();
 
             Debug.Log("<color=orange>Enemey Hit  </color>" + _currentState.Hp);
         }
