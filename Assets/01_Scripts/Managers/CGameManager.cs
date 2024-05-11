@@ -28,7 +28,7 @@ namespace AlienProject
 			}
 			else
 			{
-				Debug.Log($"[CGameManager]: 플레이어 {_inScenePlayer} 확인 완료");
+				Debug.Log($"[CGameManager]: 플레이어 캐릭터 {_inScenePlayer} 확인 완료");
 			}
 #endif
 		}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7813285949572635542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Appearance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8173329046116886573}
   - component: {fileID: 301804080275556137}
   - component: {fileID: 6816996290778571132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2581,7 +2581,7 @@ GameObject:
   - component: {fileID: 7949125953396997299}
   - component: {fileID: 638465983964544720}
   - component: {fileID: 1650280895680314032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5118,7 +5118,8 @@ GameObject:
   - component: {fileID: 8035867556936957485}
   - component: {fileID: 1974674431866590354}
   - component: {fileID: 2270406309893104366}
-  m_Layer: 0
+  - component: {fileID: 8678461455925723776}
+  m_Layer: 8
   m_Name: P_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5287,3 +5288,15 @@ MonoBehaviour:
   _idleTurning: 0
   _accelerationMagnitude: 10
   _decelerationMagnitude: 20
+--- !u!114 &8678461455925723776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973774092674744752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6c55440754da94dbb9057459e6b764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
