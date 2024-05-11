@@ -8,6 +8,13 @@ namespace AlienProject
 	[RequireComponent(typeof(SensorBase))]
 	public class CEnemy : PawnBase
 	{
+		#region IDamageable Impelementation
+
+		public override void TakeDamage(float damageAmount)
+		{ }
+
+		#endregion // IDamageable Impelementation
+
 		// MARK: Events
 
 		// TODO 이름을 변경해야 할 확률이 매우 높음

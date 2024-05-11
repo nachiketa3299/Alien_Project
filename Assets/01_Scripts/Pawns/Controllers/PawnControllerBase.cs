@@ -17,7 +17,7 @@ namespace AlienProject
 
 			if (_possesedPawn)
 			{
-				Debug.Log($"[PawnControllerBase]: 폰 {_possesedPawn.gameObject} ({_possesedPawn})에 빙의 완료");
+				Debug.Log($"[PawnControllerBase]: 폰 {_possesedPawn}에 빙의 완료");
 			}
 			else
 			{

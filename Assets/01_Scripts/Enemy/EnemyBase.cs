@@ -34,7 +34,7 @@ namespace AlienProject
 
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(NavMeshAgent))]
-	public abstract class EnemyBase : PawnBase
+	public abstract class EnemyBase : MonoBehaviour
 	{
 		[Header("필수 기본 구조")]
 
@@ -60,9 +60,9 @@ namespace AlienProject
 		/// </summary>
 		public event HitDelegate HitEvent;
 
-		protected override void Awake()
+		protected /*override*/ virtual void Awake()
 		{
-			base.Awake();
+			// base.Awake();
 			// _playerTR = CPlayerController._cPlayerController.transform;
 			//_agent = GetComponent<NavMeshAgent>();
 

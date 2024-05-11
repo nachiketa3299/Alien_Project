@@ -4,15 +4,24 @@ namespace AlienProject
 {
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(MovementActionBase))]
+	[RequireComponent(typeof(CHealthPoint))]
 	[Icon("Assets/Editor/Icons/PawnBase.png")]
-	public abstract class PawnBase : MonoBehaviour
+	public abstract class PawnBase : MonoBehaviour, IDamageable
 	{
 		protected MovementActionBase _movementAction;
+		protected CHealthPoint _hp;
+
+		#region IDamageable Impelementation
+		public abstract void TakeDamage(float damageAmount);
+
+		#endregion // IDamageable Impelementation
 
 		#region Unity Callbacks
+
 		protected virtual void Awake()
 		{
 			_movementAction = GetComponent<MovementActionBase>();
+			_hp = GetComponent<CHealthPoint>();
 		}
 
 		protected virtual void Start()

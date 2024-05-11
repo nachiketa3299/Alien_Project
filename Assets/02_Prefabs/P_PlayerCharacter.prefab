@@ -51,6 +51,8 @@ GameObject:
   - component: {fileID: 6412594264506971537}
   - component: {fileID: 2157062229205318310}
   - component: {fileID: 8802269630046640148}
+  - component: {fileID: 6579435351725364396}
+  - component: {fileID: 6244227000068009601}
   m_Layer: 7
   m_Name: P_PlayerCharacter
   m_TagString: Player
@@ -230,7 +232,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5121452283571671547}
-        m_TargetAssemblyTypeName: AlienProject.CPlayerCharacterController, AlienProject
+        m_TargetAssemblyTypeName: AlienProject.CCharacterController, AlienProject
         m_MethodName: OnInput_MovementAction
         m_Mode: 0
         m_Arguments:
@@ -429,6 +431,30 @@ MonoBehaviour:
   _idleTurning: 0
   _accelerationMagnitude: 15
   _decelerationMagnitude: 20
+--- !u!114 &6579435351725364396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742426454609238136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7595fe4aa575ea4d971b05fdf68ccbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6244227000068009601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742426454609238136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6c55440754da94dbb9057459e6b764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8441565779195062132
 GameObject:
   m_ObjectHideFlags: 0

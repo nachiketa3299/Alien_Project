@@ -30,6 +30,16 @@ namespace AlienProject
 			private float CharacterForwardLength => 1f * _drawScale;
 			private Color CharacterForwardColor = Color.yellow;
 
+			private GUIStyle _labelStyle;
+
+			private void OnEnable()
+			{
+				_labelStyle = new GUIStyle
+				{
+					richText = true,
+				};
+			}
+
 			private void OnSceneGUI()
 			{
 				if (!Application.isPlaying)
@@ -82,7 +92,8 @@ namespace AlienProject
 						var pivot = root + target.normalized * _offsetRadius;
 
 						Handles.DrawLine(pivot, pivot + target, 10f);
-						Handles.Label(pivot + target, $"Speed: {comp.MovementSpeed}");
+						_labelStyle.normal.textColor = VelocityColor(comp.MovementSpeedRatio);
+						Handles.Label(pivot + target, $"<i>Speed</i>: {comp.MovementSpeed}", _labelStyle);
 					}
 				}
 
@@ -95,19 +106,27 @@ namespace AlienProject
 						var pivot = root + comp._accelerationDirection * _offsetRadius;
 
 						Handles.DrawLine(pivot, pivot + target, 5f);
-						Handles.Label(pivot + target, $"Acc: {comp._accelerationMagnitude}");
+						_labelStyle.normal.textColor = AccelerationColor;
+						Handles.Label(pivot + target, $"<i>Acc</i>: {comp._accelerationMagnitude}", _labelStyle);
 					}
 				}
 				else
 				{
 					{ // Deceleration
+
+						if (!comp.IsMoving)
+						{
+							return;
+						}
+
 						Handles.color = DecelerationColor;
 
 						var target = comp._decelerationDirection * DecelerationLength;
 						var pivot = root + comp._decelerationDirection * _offsetRadius;
 
 						Handles.DrawLine(pivot, pivot + target, 5f);
-						Handles.Label(pivot + target, $"Dec: {comp._decelerationMagnitude}");
+						_labelStyle.normal.textColor = DecelerationColor;
+						Handles.Label(pivot + target, $"<i>Dec</i>: {comp._decelerationMagnitude}", _labelStyle);
 					}
 				}
 			}
