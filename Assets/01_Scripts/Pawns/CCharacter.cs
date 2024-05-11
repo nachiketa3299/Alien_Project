@@ -15,6 +15,11 @@ namespace AlienProject
 
 		#endregion // IDamageable Impelementation
 
+		// MARK: Inspector
+
+		[SerializeField]
+		private OCharacterData _characterData;
+
 		#region Unity Callbacks
 
 		protected override void Awake()
@@ -22,6 +27,19 @@ namespace AlienProject
 			base.Awake();
 
 			_sp = GetComponent<CStaminaPoint>();
+		}
+
+		protected override void Start()
+		{
+			base.Start();
+
+			if (_shouldInitalizeWithPawnData)
+			{
+				foreach (var initializable in GetComponents<IInitializable>())
+				{
+					initializable.Initialize(_characterData);
+				}
+			}
 		}
 
 		#endregion // Unity Callbacks

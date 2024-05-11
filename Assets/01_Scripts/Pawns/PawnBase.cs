@@ -8,8 +8,15 @@ namespace AlienProject
 	[Icon("Assets/Editor/Icons/PawnBase.png")]
 	public abstract class PawnBase : MonoBehaviour, IDamageable
 	{
+		// MARK: Component Caching
+
 		protected MovementActionBase _movementAction;
 		protected CHealthPoint _hp;
+
+		// MARK: Inspector
+
+		[SerializeField]
+		protected bool _shouldInitalizeWithPawnData = false;
 
 		#region IDamageable Impelementation
 		public abstract void TakeDamage(float damageAmount);
