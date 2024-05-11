@@ -9,7 +9,7 @@ namespace AlienProject
 	/// 가속도와 감속도의 영향을 받는 움직임을 구현하는 컴포넌트입니다.
 	/// </summary>
 	[AddComponentMenu("Alien Project/Character/Acceleration Movement Action Component")]
-	public partial class CAccelerationMovement : MovementActionBase
+	public partial class CAccelerationMovement : MovementActionBase, IInitializable
 	{
 		public enum ETurningState
 		{
@@ -29,6 +29,17 @@ namespace AlienProject
 
 		[SerializeField] private float _decelerationMagnitude = 20f;
 
+		#region IInitializable Impelementation
+
+		public void Initialize(PawnDataBase data)
+		{
+			_maxSpeed = data.movementData.maxSpeed;
+			_rotationSpeed = data.movementData.rotationSpeed;
+			_accelerationMagnitude = data.movementData.accelerationMagnitude;
+			_decelerationMagnitude = data.movementData.decelerationMagnitude;
+		}
+
+		#endregion // IInitializable Impelementation
 
 		// MARK: Properties
 
@@ -237,7 +248,6 @@ namespace AlienProject
 				}
 			}
 		}
-
 
 	} // class CMovementAction
 } // namespace AlienProject

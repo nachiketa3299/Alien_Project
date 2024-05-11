@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 5503055871773813133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 672
+  m_VersionIndex: 675
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4996,7 +4996,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1600
+  m_VersionIndex: 1603
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5214,6 +5214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023206fef92138248bf060a3dc20b031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shouldInitalizeWithPawnData: 0
   OnTargetDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -5223,6 +5224,7 @@ MonoBehaviour:
   OnTargetEmpty:
     m_PersistentCalls:
       m_Calls: []
+  _enemyData: {fileID: 11400000, guid: c7a76430c8e388f48a720280b37b8425, type: 2}
 --- !u!114 &1974674431866590354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5260,15 +5262,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _eyeObject: {fileID: 5503055871773813133}
-  _visionRadius: 10
+  _visionRadius: 15
   _visionAngle: 240
   _searchDelay: 0.2
   _searchLayerMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 1664
   _obstacleLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
 --- !u!114 &2270406309893104366
 MonoBehaviour:
   m_ObjectHideFlags: 0

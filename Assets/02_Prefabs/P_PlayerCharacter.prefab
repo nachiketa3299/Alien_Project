@@ -374,6 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487766d58b2a02e48954161d2dc4c6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shouldInitalizeWithPawnData: 0
+  _characterData: {fileID: 11400000, guid: adad145c625c7904384eca1d45663e93, type: 2}
 --- !u!114 &6412594264506971537
 MonoBehaviour:
   m_ObjectHideFlags: 0

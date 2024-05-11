@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AlienProject
 {
-	public partial class CAccelerationMovement : MovementActionBase
+	public partial class CAccelerationMovement : MovementActionBase, IInitializable
 	{
 		[CustomEditor(typeof(CAccelerationMovement))]
 		private class AccelerationMovementEditor : Editor
