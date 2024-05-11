@@ -52,6 +52,7 @@ namespace AlienProject
 			base.Awake();
 
 			_sensor = GetComponent<SensorBase>();
+
 		}
 
 		protected override void Start()

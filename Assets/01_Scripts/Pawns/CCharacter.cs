@@ -8,6 +8,8 @@ namespace AlienProject
 	{
 		private CStaminaPoint _sp;
 
+		// MARK: Inspector
+
 		#region IDamageable Impelementation
 
 		public override void TakeDamage(float damageAmount)

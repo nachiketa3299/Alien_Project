@@ -3,7 +3,6 @@ using UnityEngine;
 namespace AlienProject
 {
 	[DisallowMultipleComponent]
-	[Icon("Assets/Editor/Icons/PawnControllerBase.png")]
 	public abstract class PawnControllerBase : MonoBehaviour
 	{
 		// MARK: Component Caching

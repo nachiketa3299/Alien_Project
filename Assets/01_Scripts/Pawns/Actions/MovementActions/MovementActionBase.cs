@@ -4,7 +4,6 @@ namespace AlienProject
 {
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(CharacterController))]
-	[Icon("Assets/Editor/Icons/MovementActionBase.png")]
 	public abstract class MovementActionBase : MonoBehaviour
 	{
 		public enum EMovingState
