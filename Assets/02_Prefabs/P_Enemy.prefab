@@ -5234,22 +5234,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174a25ccdc8929c4481d7103eb46e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnTargetEmpty:
+  OnTrackingTargetEmpty:
     m_PersistentCalls:
       m_Calls: []
   OnTrackingTargetDetected:
     m_PersistentCalls:
       m_Calls: []
-  OnTargetLost:
+  OnTrackingTargetLost:
     m_PersistentCalls:
       m_Calls: []
-  _eyeTransform: {fileID: 1278658429593140076}
-  _targetSearchRadius: 21
-  _targetSearchAngle: 309
-  _targetSearchDelay: 0.317
-  _targetLayerMask:
+  _trackingTargetLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  OnSearchedTargetInVisionRadius:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSearchedTargetInVisionAngle:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSearchedTargetCovered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTargetInVision:
+    m_PersistentCalls:
+      m_Calls: []
+  _eyeObject: {fileID: 5503055871773813133}
+  _visionRadius: 10
+  _visionAngle: 240
+  _searchDelay: 0.2
+  _searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 640
   _obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 64

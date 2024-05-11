@@ -14,11 +14,11 @@ TagManager:
   - Walls
   - Water
   - UI
-  - ObstacleMask
-  - Player
-  - Enemy
-  - 
-  - 
+  - APObstacle
+  - APPlayer
+  - APEnemy
+  - APObjects
+  - APItem
   - 
   - 
   - 
