@@ -3,6 +3,9 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// 
+/// </summary>
 public class CUIManager : MonoBehaviour
 {
 	[SerializeField] private GameObject actionSetPanel;
@@ -36,10 +39,10 @@ public class CUIManager : MonoBehaviour
 		}
 	}
 
-	public void GeneratePopUP(int damage, Vector3 position)
+	public void GeneratePopUP(float damage, Vector3 position)
 	{
 		GameObject damagePrefab = Instantiate(_damagePrefab, position, quaternion.identity, _damageCanvas.transform);
 
-		damagePrefab.GetComponent<TextMeshProUGUI>().text = "1";
+		damagePrefab.GetComponent<TextMeshProUGUI>().text = damage.ToString();
 	}
 }
