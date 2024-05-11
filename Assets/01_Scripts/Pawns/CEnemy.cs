@@ -52,27 +52,29 @@ namespace AlienProject
 				{
 					State = EEnemyState.Chase;
 
-					Debug.Log($"[CEnemy] {_sensor}이 플레이어를 발견했습니다.");
+					Debug.Log($"[CEnemy] {_sensor}이 {tr.name}을 감지했습니다.");
 					OnTargetDetected?.Invoke(tr);
 				}
 			);
 
-			_sensor.OnTargetLost.AddListener
+			_sensor.OnTrackingTargetLost.AddListener
 			(
 				(tr) =>
 				{
 					State = EEnemyState.Patrol;
 
-					Debug.Log($"[CEnemy] {_sensor}이 플레이어를 잃었습니다.");
+					Debug.Log($"[CEnemy] {_sensor}이 {tr.name}을 잃었습니다.");
 					OnTargetLost?.Invoke(tr);
 				}
 			);
 
-			_sensor.OnTargetEmpty.AddListener
+			_sensor.OnTrackingTargetEmpty.AddListener
 			(
 				() =>
 				{
 					State = EEnemyState.Idle;
+
+					Debug.Log($"[CEnemy] {_sensor}가 아무것도 감지하지 못했습니다.");
 					OnTargetEmpty?.Invoke(null);
 				}
 			);

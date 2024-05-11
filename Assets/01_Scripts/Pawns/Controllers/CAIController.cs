@@ -1,6 +1,5 @@
 using UnityEngine.AI;
 using UnityEngine;
-using UnityEditor;
 
 namespace AlienProject
 {
@@ -17,7 +16,6 @@ namespace AlienProject
 		private NavMeshPath _navMeshPath;
 
 		#region Unity Callbacks
-
 
 		protected override void Awake()
 		{
@@ -42,10 +40,20 @@ namespace AlienProject
 				}
 			);
 
+			enemyPawn.OnTargetLost.AddListener
+			(
+				(tr) =>
+				{
+					_navMeshAgent.ResetPath();
+					_navMeshPath.ClearCorners();
+				}
+			);
+
 			enemyPawn.OnTargetEmpty.AddListener
 			(
 				(tr) =>
 				{
+					_navMeshAgent.ResetPath();
 					_navMeshPath.ClearCorners();
 				}
 			);
