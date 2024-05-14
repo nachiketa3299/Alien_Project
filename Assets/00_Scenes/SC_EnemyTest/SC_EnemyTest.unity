@@ -5142,11 +5142,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a0404ee3d16424b46a4e7edbc3561dd1, type: 2}
   m_BuildHeightMesh: 0
---- !u!1 &1704196524 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5503055871773813133, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-  m_PrefabInstance: {fileID: 2030042948}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1750496707
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,18 +5482,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2104617837}
-    - target: {fileID: 860844296582802001, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278658429593140076, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278658429593140076, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1607971238825493204, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5507,30 +5490,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2104617837}
-    - target: {fileID: 1974674431866590354, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: _eyeObject
-      value: 
-      objectReference: {fileID: 1704196524}
-    - target: {fileID: 1974674431866590354, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: _visionAngle
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974674431866590354, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: _visionRadius
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974674431866590354, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: _searchLayerMask.m_Bits
-      value: 1664
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974674431866590354, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 576
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974674431866590354, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: _trackingTargetLayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 3822421394899906607, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9103155
@@ -5575,25 +5534,13 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2104617837}
-    - target: {fileID: 5503055871773813133, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6816996290778571132, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 633225773}
-    - target: {fileID: 7145645005951785993, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7973774092674744752, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
       propertyPath: m_Name
       value: P_Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7973774092674744752, guid: cf02bff1e3bdf1844ab9be7833136c5c, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

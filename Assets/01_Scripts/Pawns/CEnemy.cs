@@ -36,6 +36,11 @@ namespace AlienProject
 
 		// MARK: Members
 
+		// MARK: Inspector
+
+		[SerializeField]
+		private OEnemyData _enemyData;
+
 		// MARK: Properties
 
 		public EEnemyState State { get; private set; }
@@ -47,6 +52,7 @@ namespace AlienProject
 			base.Awake();
 
 			_sensor = GetComponent<SensorBase>();
+
 		}
 
 		protected override void Start()
@@ -85,6 +91,14 @@ namespace AlienProject
 					OnTargetEmpty?.Invoke(null);
 				}
 			);
+
+			if (_shouldInitalizeWithPawnData)
+			{
+				foreach (var initializable in GetComponents<IInitializable>())
+				{
+					initializable.Initialize(_enemyData);
+				}
+			}
 		}
 
 		#endregion // Unity Callbacks
