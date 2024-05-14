@@ -12,11 +12,11 @@ namespace AlienProject
 		// MARK: Inspector
 
 		[SerializeField] private CWeaponSocket _socket;
-		private AttackEffectInfo _effectInfo;
+		private EffectInfo _effectInfo;
 		protected override void Awake()
 		{
 			base.Awake();
-			_effectInfo = new AttackEffectInfo{bleeding = 1,sleeping = 0};
+			_effectInfo = new EffectInfo{bleeding = 1,sleeping = 1};
 			
 		}
 

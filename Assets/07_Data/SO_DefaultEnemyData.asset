@@ -19,4 +19,4 @@ MonoBehaviour:
     decelerationMagnitude: 20
   healthData:
     max: 100
-    current: 100
+    current: 80

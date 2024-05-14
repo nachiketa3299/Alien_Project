@@ -17,16 +17,6 @@ public class CUIManager : MonoBehaviour
 		UIManager = this;
 		//actionSetPanel.SetActive(actionSetState);
 	}
-
-	// void Start()
-	// {
-	// }
-
-	// Update is called once per frame
-	// void Update()
-	// {
-	// }
-
 	public void OnEsc(InputAction.CallbackContext context)
 	{
 		if (context.performed)
@@ -42,4 +32,6 @@ public class CUIManager : MonoBehaviour
 
 		damagePrefab.GetComponent<TextMeshProUGUI>().text = "1";
 	}
+	
+	
 }

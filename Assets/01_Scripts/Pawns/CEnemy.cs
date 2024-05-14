@@ -30,12 +30,15 @@ namespace AlienProject
             Chase
         }
 
-
         // MARK: Component Caching
         private SensorBase _sensor;
+        private CEnemyUI _enemyUI;
 
         // MARK: Members
+        private EffectInfo enemEffectInfo;
         private BleedingEffect _bleedingEffect;
+        private SleepingEffect _sleepingEffect;
+
 
         // MARK: Inspector
 
@@ -52,8 +55,9 @@ namespace AlienProject
             base.Awake();
 
             _sensor = GetComponent<SensorBase>();
-            _bleedingEffect = new BleedingEffect();
-            _bleedingEffect.InitEffect(2, 20);
+            _enemyUI = GetComponent<CEnemyUI>();
+            _enemyUI.Init(3, 3);
+            InitEffectManager();
         }
 
         protected override void Start()
@@ -104,6 +108,22 @@ namespace AlienProject
 
         #endregion // Unity Callbacks
 
+        #region 상태이상
+
+        private void InitEffectManager()
+        {
+            enemEffectInfo = new EffectInfo();
+
+            //출혈
+            _bleedingEffect = new BleedingEffect();
+            _bleedingEffect.InitEffect(3, 20);
+            _bleedingEffect.bleedEvent += OnEffectEvent;
+
+            //수면
+            _sleepingEffect = new SleepingEffect();
+            _sleepingEffect.InitEffect(3, 20);
+            _sleepingEffect.sleepEvent += OnSleepEffectEvent;
+        }
 
         /// <summary>
         /// <see cref="IStatusEffectable"/> 인터페이스 추상함수 구현
@@ -114,20 +134,53 @@ namespace AlienProject
         /// </list>
         /// </summary>
         /// <param name="value"></param>
-        public void StackEffect(AttackEffectInfo value)
+        public void StackEffect(EffectInfo value)
         {
+            
             _bleedingEffect.CurrentValue += value.bleeding;
-            _bleedingEffect.bleedEvent += OnEffectEvent;
+            _sleepingEffect.CurrentValue += value.sleeping;
+            //모든 이벤트 실행
+            //
+            enemEffectInfo.bleeding = _bleedingEffect.CurrentValue;
+            enemEffectInfo.sleeping = _sleepingEffect.CurrentValue;
+            
+            //현재 리셋되고나서 업데이트를 함
+            UpdateStatusUI();
+            Debug.Log("StackEffect");
         }
 
         /// <summary>
-        /// 출혈 이벤트
+        /// 출혈 이벤트 <para/>
+        /// 최대체력 비례 데미지
         /// </summary>
         /// <param name="percent"></param>
         public void OnEffectEvent(float percent)
         {
             _enemyData.healthData.current -= _enemyData.healthData.max * percent / 100;
-            Debug.Log("<color=red>[상태이상 발현] 현재체력 : " + _enemyData.healthData.current + " </color>");
+            _enemyUI.ResetUI(Effect.Bleeding);
+            
+            Debug.Log("<color=red>[상태이상]출혈 현재체력 : " + _enemyData.healthData.current + " </color>");
         }
+
+        /// <summary>
+        /// 수면 이벤트 <para/>
+        /// 속도를 제어합니다.
+        /// </summary>
+        /// <param name="percent"></param>
+        public void OnSleepEffectEvent(float percent)
+        {
+            _enemyUI.ResetUI(Effect.Sleeping);
+            Debug.Log("<color=red>[상태이상]수면 현재이동속도 : " + _enemyData.healthData.current + " </color>");
+        }
+
+        /// <summary>
+        /// 적의 상태이상에 따른 UI를 업데이트 합니다
+        /// </summary>
+        public void UpdateStatusUI()
+        {
+            _enemyUI.UpdateUI(_enemyData.healthData.current, enemEffectInfo);
+        }
+
+        #endregion
     } // class CEnemy
 } // namespace AlienProject
