@@ -13,7 +13,7 @@ namespace AlienProject
         public float maxValue;
 
         /// <summary>
-        /// 상태축적
+        /// 상태이상을 축적합니다.
         /// </summary>
         public float CurrentValue
         {
@@ -43,6 +43,12 @@ namespace AlienProject
         /// </summary>
         public event EffectDelegate bleedEvent;
         public float percent;
+        
+        /// <summary>
+        /// 상태이상을 적용하는 적에 대해 초기화합니다.
+        /// </summary>
+        /// <param name="maxValue">발현 수치</param>
+        /// <param name="percent"></param>
         public void InitEffect(float maxValue,float percent)
         {
             //this.CurrentValue = value;
@@ -50,6 +56,10 @@ namespace AlienProject
             this.percent = percent;
         }
 
+        /// <summary>
+        /// 상태이상을 발현합니다.<para/>
+        /// <see cref="bleedEvent"/>이벤트를 할당하세요
+        /// </summary>
         public override void OnEffect()
         {
             base.OnEffect();
