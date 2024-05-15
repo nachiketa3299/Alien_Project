@@ -50,10 +50,11 @@ namespace AlienProject
         /// <param name="effectInfo"></param>
         public void UpdateUI(float hp, EffectInfo effectInfo)
         {
-            bleedingImageList[effectInfo.bleeding - 1].enabled = true;
-            sleepingImageList[effectInfo.bleeding - 1].enabled = true;
+            if (effectInfo.bleeding != 0)
+                bleedingImageList[effectInfo.bleeding - 1].enabled = true;
+            if (effectInfo.sleeping != 0)
+                sleepingImageList[effectInfo.sleeping - 1].enabled = true;
             _hpImage.fillAmount = hp * 0.01f;
-            
         }
 
         public void ResetUI(Effect effect)

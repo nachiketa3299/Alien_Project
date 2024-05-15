@@ -42,6 +42,7 @@ namespace AlienProject
         public virtual void OnEffect()
         {
             stackEvent?.Invoke();
+            currentValue = 0;
         }
 
         /// <summary>
@@ -63,8 +64,7 @@ namespace AlienProject
         /// 출현 발현 이벤트
         /// </summary>
         public event EffectDelegate bleedEvent;
-
-
+        
         /// <summary>
         /// 상태이상을 적용하는 적에 대해 초기화합니다.
         /// </summary>

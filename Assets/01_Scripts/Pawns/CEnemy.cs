@@ -113,7 +113,7 @@ namespace AlienProject
         private void InitEffectManager()
         {
             enemEffectInfo = new EffectInfo();
-
+            
             //출혈
             _bleedingEffect = new BleedingEffect();
             _bleedingEffect.InitEffect(3, 20);
@@ -136,7 +136,6 @@ namespace AlienProject
         /// <param name="value"></param>
         public void StackEffect(EffectInfo value)
         {
-            
             _bleedingEffect.CurrentValue += value.bleeding;
             _sleepingEffect.CurrentValue += value.sleeping;
             //모든 이벤트 실행
