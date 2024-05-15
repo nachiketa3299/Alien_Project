@@ -113,7 +113,7 @@ namespace AlienProject
         private void InitEffectManager()
         {
             enemEffectInfo = new EffectInfo();
-            
+
             //출혈
             _bleedingEffect = new BleedingEffect();
             _bleedingEffect.InitEffect(3, 20);
@@ -142,7 +142,7 @@ namespace AlienProject
             //
             enemEffectInfo.bleeding = _bleedingEffect.CurrentValue;
             enemEffectInfo.sleeping = _sleepingEffect.CurrentValue;
-            
+
             //현재 리셋되고나서 업데이트를 함
             UpdateStatusUI();
             Debug.Log("StackEffect");
@@ -155,9 +155,9 @@ namespace AlienProject
         /// <param name="percent"></param>
         public void OnEffectEvent(float percent)
         {
-            _enemyData.healthData.current -= _enemyData.healthData.max * percent / 100;
+            _hp.ApplyDamage(_enemyData.healthData.max * percent / 100);
             _enemyUI.ResetUI(Effect.Bleeding);
-            
+
             Debug.Log("<color=red>[상태이상]출혈 현재체력 : " + _enemyData.healthData.current + " </color>");
         }
 

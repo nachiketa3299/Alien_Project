@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace AlienProject
@@ -33,7 +34,7 @@ namespace AlienProject
 		protected virtual void Start()
 		{
 		}
-
+		
 		#endregion // Unity Callbacks
 
 		public void MoveTowardWorldDirection(Vector3 worldDirection)
