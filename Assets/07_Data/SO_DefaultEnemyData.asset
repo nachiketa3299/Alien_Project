@@ -13,10 +13,23 @@ MonoBehaviour:
   m_Name: SO_DefaultEnemyData
   m_EditorClassIdentifier: 
   movementData:
-    maxSpeed: 3
-    rotationSpeed: 8
-    accelerationMagnitude: 10
-    decelerationMagnitude: 20
+    maxSpeed: 2
+    rotationSpeed: 2
+    accelerationMagnitude: 5
+    decelerationMagnitude: 10
   healthData:
     max: 100
     current: 100
+  visionData:
+    searchDelay: 0.5
+    visionRadius: 10
+    visionAngle: 240
+    targetLayerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    searchLayerMask:
+      serializedVersion: 2
+      m_Bits: 1664
+    obstacleLayerMask:
+      serializedVersion: 2
+      m_Bits: 576

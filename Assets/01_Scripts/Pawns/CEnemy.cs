@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 
 namespace AlienProject
 {
@@ -8,6 +9,21 @@ namespace AlienProject
 	[RequireComponent(typeof(SensorBase))]
 	public class CEnemy : PawnBase
 	{
+		public enum EEnemyState
+		{
+			Idle,
+			Patroling,
+			Chasing,
+			Attacking,
+		}
+
+		// MARK: Events
+
+		[HideInInspector] public UnityEvent ToIdle;
+		[HideInInspector] public UnityEvent ToPatroling;
+		[HideInInspector] public UnityEvent<GameObject> ToChasing;
+		[HideInInspector] public UnityEvent ToAttacking;
+
 		#region IDamageable Impelementation
 
 		public override void TakeDamage(float damageAmount)
@@ -15,23 +31,8 @@ namespace AlienProject
 
 		#endregion // IDamageable Impelementation
 
-		// MARK: Events
-
-		// TODO 이름을 변경해야 할 확률이 매우 높음
-
-		public UnityEvent<Transform> OnTargetDetected;
-		public UnityEvent<Transform> OnTargetLost;
-		public UnityEvent<Transform> OnTargetEmpty;
-
-		public enum EEnemyState
-		{
-			Idle,
-			Patrol,
-			Chase
-		}
-
-
 		// MARK: Component Caching
+
 		private SensorBase _sensor;
 
 		// MARK: Members
@@ -40,6 +41,9 @@ namespace AlienProject
 
 		[SerializeField]
 		private OEnemyData _enemyData;
+
+		[SerializeField]
+		private float _attackStateStartRange = 10f;
 
 		// MARK: Properties
 
@@ -51,46 +55,17 @@ namespace AlienProject
 		{
 			base.Awake();
 
-			_sensor = GetComponent<SensorBase>();
+			{  // SensorBase 초기화
+				_sensor = GetComponent<SensorBase>();
 
+				_sensor.TrackingTargetEmpty.AddListener(OnTrackingTargetEmpty);
+				_sensor.TrackingTargetFound.AddListener(OnTrackingTargetFound);
+			}
 		}
 
 		protected override void Start()
 		{
 			base.Start();
-
-			_sensor.OnTrackingTargetDetected.AddListener
-			(
-				(tr) =>
-				{
-					State = EEnemyState.Chase;
-
-					Debug.Log($"[CEnemy] {_sensor}이 {tr.name}을 감지했습니다.");
-					OnTargetDetected?.Invoke(tr);
-				}
-			);
-
-			_sensor.OnTrackingTargetLost.AddListener
-			(
-				(tr) =>
-				{
-					State = EEnemyState.Patrol;
-
-					Debug.Log($"[CEnemy] {_sensor}이 {tr.name}을 잃었습니다.");
-					OnTargetLost?.Invoke(tr);
-				}
-			);
-
-			_sensor.OnTrackingTargetEmpty.AddListener
-			(
-				() =>
-				{
-					State = EEnemyState.Idle;
-
-					Debug.Log($"[CEnemy] {_sensor}가 아무것도 감지하지 못했습니다.");
-					OnTargetEmpty?.Invoke(null);
-				}
-			);
 
 			if (_shouldInitalizeWithPawnData)
 			{
@@ -101,7 +76,38 @@ namespace AlienProject
 			}
 		}
 
+		protected void Update()
+		{
+			GetComponent<Animator>().SetBool("IsMoving", _movementAction.IsMoving);
+		}
+
 		#endregion // Unity Callbacks
+
+		// MARK: Callbacks for SensorBase Event
+
+		private void OnTrackingTargetEmpty()
+		{
+			// NOTE 이 폰이 "추적 대상을 찾을 수 없을 때"의 로직을 여기에 작성
+			// SensorBase의 딜레이마다, 추적대상이 없는 경우 호출됨
+
+			Debug.Log($"[CEnemy]: {_sensor}가 추적 대상을 찾을 수 없습니다.");
+
+			State = EEnemyState.Patroling;
+
+			ToPatroling?.Invoke();
+		}
+
+		private void OnTrackingTargetFound(GameObject target)
+		{
+			// NOTE 이 폰이 "추적 대상을 발견한 순간"의 로직을 여기에 작성
+
+			Debug.Log($"[CEnemy]: {_sensor}가 {target}을 발견했습니다.");
+
+			State = EEnemyState.Chasing;
+
+			ToChasing?.Invoke(target);
+		}
+
 
 	} // class CEnemy
 } // namespace AlienProject

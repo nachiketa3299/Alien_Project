@@ -12,28 +12,36 @@ namespace AlienProject
 		{
 			private readonly Color _cornerColor = Color.blue;
 			private readonly Color _pathColor = Color.cyan;
+			private readonly GUIStyle _labelStyle = new();
+			private CAIController _comp;
+
+			private void OnEnable()
+			{
+				_comp = target as CAIController;
+
+				_labelStyle.normal.textColor = _cornerColor;
+				_labelStyle.fontStyle = FontStyle.Bold;
+			}
 
 			private void OnSceneGUI()
 			{
-				var cAIController = target as CAIController;
-
-				if (cAIController._navMeshPath == null)
+				if (_comp._navMeshPath == null)
 				{
 					return;
 				}
 
-				Handles.color = _cornerColor;
-
-				foreach (var corner in cAIController._navMeshPath.corners)
+				for (var i = 0; i < _comp._navMeshPath.corners.Length; ++i)
 				{
-					Handles.DrawSolidDisc(corner, Vector3.up, 0.1f);
-				}
+					// Draw Corner Label
+					Handles.Label(_comp._navMeshPath.corners[i], i.ToString(), _labelStyle);
 
-				Handles.color = _pathColor;
+					// Draw Path
 
-				for (int i = 0; i < cAIController._navMeshPath.corners.Length - 1; i++)
-				{
-					Handles.DrawLine(cAIController._navMeshPath.corners[i], cAIController._navMeshPath.corners[i + 1]);
+					if (i < _comp._navMeshPath.corners.Length - 1)
+					{
+						Handles.color = _pathColor - new Color(0, 0, 0, 0.7f);
+						Handles.DrawDottedLine(_comp._navMeshPath.corners[i], _comp._navMeshPath.corners[i + 1], 5f);
+					}
 				}
 			}
 		} // class AIControllerEditor
