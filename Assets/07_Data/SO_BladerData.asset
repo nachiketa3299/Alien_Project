@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_BladerData
   m_EditorClassIdentifier: 
   movementData:
-    maxSpeed: 100
+    maxSpeed: 5
     rotationSpeed: 8
     accelerationMagnitude: 10
     decelerationMagnitude: 20

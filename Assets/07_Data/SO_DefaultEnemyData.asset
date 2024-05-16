@@ -20,3 +20,16 @@ MonoBehaviour:
   healthData:
     max: 100
     current: 80
+  visionData:
+    searchDelay: 3
+    visionRadius: 10
+    visionAngle: 240
+    targetLayerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    searchLayerMask:
+      serializedVersion: 2
+      m_Bits: 640
+    obstacleLayerMask:
+      serializedVersion: 2
+      m_Bits: 64

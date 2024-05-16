@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4901873092389024441}
   - component: {fileID: 2943366979184317237}
   - component: {fileID: 77895106829677171}
+  - component: {fileID: 1212685523706336731}
   m_Layer: 0
   m_Name: P_Managers
   m_TagString: Untagged
@@ -104,6 +105,42 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: adfb0e16-477c-4585-8a2a-b9e52559db13
     m_ActionName: CharacterControl/RotateCamera[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e88c0956-af74-4fef-b0c4-1d1edd7165c8
+    m_ActionName: UIControl/Navigate[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d9bf4b53-cb64-417d-8c45-9ac13eaf36c1
+    m_ActionName: UIControl/Submit[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f401b344-4523-4137-88d4-d7918f513972
+    m_ActionName: UIControl/Cancel[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 66d8d5c7-e7c5-49b3-975a-19d539dca94c
+    m_ActionName: UIControl/ToggleActionMenu[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e03d4cf5-1d7a-4e47-939f-e4824451a5ec
+    m_ActionName: UIControl/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4d7abdb-fefb-48eb-b596-32ee37bf860d
+    m_ActionName: UIControl/LClick[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6811c99e-c957-433f-b172-462eb92afb9c
+    m_ActionName: UIControl/RClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f23ed23a-a977-470e-b2e8-d5579f68b547
+    m_ActionName: UIControl/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79f03e9c-2276-4b91-b278-a7729dcab124
+    m_ActionName: UIControl/Esc[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CharacterControl
@@ -123,6 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _virtualCameraTag: VirtualCamera
   _virtualCamerasFollow: {fileID: 0}
+  _virtualCameraDistance: 60
+  _orthoSize: 5
   _cameraYawOffset: 45
   _cameraPitch: 30
   _transitionBlend:
@@ -136,3 +175,29 @@ MonoBehaviour:
       m_RotationOrder: 4
   _blendHint: 2
   _flipRotateDirection: 0
+--- !u!114 &1212685523706336731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156220194522405496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a79542be668a84c8752f3343154d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnDic:
+    _serializedList:
+    - Key: test1
+      Value:
+        spawnEnemy: {fileID: 0}
+        spawnParent: {fileID: 0}
+        spawnCenter: {fileID: 0}
+        spawnRadius: 3
+    - Key: test2
+      Value:
+        spawnEnemy: {fileID: 0}
+        spawnParent: {fileID: 0}
+        spawnCenter: {fileID: 0}
+        spawnRadius: 3
