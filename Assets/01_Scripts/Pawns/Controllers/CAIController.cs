@@ -1,5 +1,6 @@
 using UnityEngine.AI;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace AlienProject
 {
@@ -15,6 +16,8 @@ namespace AlienProject
 		private NavMeshAgent _navMeshAgent;
 		private NavMeshPath _navMeshPath;
 
+		private List<NavMeshHit> _patrolPoints = new();
+
 		#region Unity Callbacks
 
 		protected override void Awake()
@@ -22,8 +25,7 @@ namespace AlienProject
 			base.Awake();
 
 			_navMeshAgent = GetComponent<NavMeshAgent>();
-			_navMeshPath = new();
-
+			_navMeshPath = new NavMeshPath();
 		}
 
 		protected override void Start()
@@ -32,33 +34,46 @@ namespace AlienProject
 
 			var enemyPawn = _possesedPawn as CEnemy;
 
-			enemyPawn.OnTargetDetected.AddListener
-			(
-				(tr) =>
-				{
-					_navMeshAgent.CalculatePath(tr.position, _navMeshPath);
-				}
-			);
+			enemyPawn.ToPatroling.AddListener(OnPatroling);
+			enemyPawn.ToChasing.AddListener(OnChasing);
+		}
+		private void OnPatroling()
+		{
+			_navMeshAgent.ResetPath();
+			_navMeshPath.ClearCorners();
+		}
 
-			enemyPawn.OnTargetLost.AddListener
-			(
-				(tr) =>
-				{
-					_navMeshAgent.ResetPath();
-					_navMeshPath.ClearCorners();
-				}
-			);
+		private void OnChasing(GameObject target)
+		{
+			_patrolPoints.Clear();
 
-			enemyPawn.OnTargetEmpty.AddListener
-			(
-				(tr) =>
-				{
-					_navMeshAgent.ResetPath();
-					_navMeshPath.ClearCorners();
-				}
-			);
+			_navMeshAgent.ResetPath();
+			_navMeshPath.ClearCorners();
+
+			_navMeshAgent.CalculatePath(target.transform.position, _navMeshPath);
+		}
+
+		protected void Update()
+		{
+			// NOTE 제대로 작동하지 않음
+
+			var state = (_possesedPawn as CEnemy).State;
+			switch (state)
+			{
+				case CEnemy.EEnemyState.Patroling:
+				case CEnemy.EEnemyState.Chasing:
+					if (_navMeshPath.corners.Length > 0)
+					{
+						_possesedPawn.MoveToWorldPosition(_navMeshPath.corners[1]);
+					}
+					break;
+				case CEnemy.EEnemyState.Attacking:
+				case CEnemy.EEnemyState.Idle:
+					break;
+			}
 		}
 
 		#endregion // Unity Callbacks
+
 	} // class CEnemyAIController
 } // namespace AlienProject

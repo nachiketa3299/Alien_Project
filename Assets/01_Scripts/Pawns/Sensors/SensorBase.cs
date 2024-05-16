@@ -9,19 +9,16 @@ namespace AlienProject
 		// MARK: Events
 
 		/// <summary>
-		/// 타겟을 검색하였는데, 타겟이 존재하지 않을 때에 호출되는 이벤트입니다.
+		/// 추적할 타겟을 검색하였는데, 존재하지 않을 때에 호출되는 이벤트입니다.
 		/// </summary>
-		[HideInInspector] public UnityEvent OnTrackingTargetEmpty;
+		[HideInInspector] public UnityEvent TrackingTargetEmpty;
 
 		/// <summary>
-		/// 타겟을 감지했을 때에 호출되는 이벤트입니다.
+		/// 추적할 타겟을 감지했을 때에 호출되는 이벤트입니다.
+		/// 추적한 타겟이 여러 개일 경우, 각 타겟마다 호출되므로 주의하십시오.
 		/// </summary>
-		[HideInInspector] public UnityEvent<Transform> OnTrackingTargetDetected;
+		[HideInInspector] public UnityEvent<GameObject> TrackingTargetFound;
 
-		/// <summary>
-		/// 타겟을 추적 하다가 잃었을 때에 호출되는 이벤트입니다.
-		/// </summary>
-		[HideInInspector] public UnityEvent<Transform> OnTrackingTargetLost;
 
 		// MARK: Inspector
 
@@ -30,11 +27,11 @@ namespace AlienProject
 
 		// MARK: Members
 
-		protected List<GameObject> _trackingObjects = new();
+		protected List<GameObject> _trackingTargets = new();
 
 		// MARK: Properties
 
-		public List<GameObject> TrackingObjects => _trackingObjects;
+		public List<GameObject> TrackingTargets => _trackingTargets;
 		public LayerMask TrackingTargetLayerMask => _trackingTargetLayerMask;
 
 		#region Unity Callbacks
