@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace AlienProject
@@ -11,8 +12,27 @@ namespace AlienProject
 		// MARK: Inspector
 
 		[SerializeField] private CWeaponSocket _socket;
+		private EffectInfo _effectInfo;
+		protected override void Awake()
+		{
+			base.Awake();
+			_effectInfo = new EffectInfo{bleeding = 1,sleeping = 1};
+			
+		}
 
 		#region Unity Callbacks
+
+		private void OnTriggerEnter(Collider other)
+		{
+			if(other.transform.tag.Equals("Enemy"))
+			{
+				Transform tr = other.transform;
+				tr.GetComponent<IStatusEffectable>().StackEffect(_effectInfo);
+				
+				Debug.Log("<color=cyan>[공격 성공]</color>");
+				
+			}
+		}
 
 		#endregion // Unity Callbacks
 	} // class CWeapon

@@ -2,44 +2,48 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class CUIManager : MonoBehaviour
 {
-	[SerializeField] private GameObject actionSetPanel;
+    [SerializeField] private GameObject actionSetPanel;
 
-	// private bool actionSetState = false; 
-	[SerializeField] private GameObject _damagePrefab;
-	[SerializeField] private GameObject _damageCanvas;
-	public static CUIManager UIManager;
+    [Header("Damage Pop Up")] [SerializeField]
+    private GameObject _damagePrefab;
 
-	private void Awake()
-	{
-		UIManager = this;
-		//actionSetPanel.SetActive(actionSetState);
-	}
+    [SerializeField] private GameObject _damageCanvas;
 
-	// void Start()
-	// {
-	// }
+    [Header("Player UI")] [SerializeField] private Image _playerHP;
+    [SerializeField] private Image _playerSP;
+    [SerializeField] private Image _playerWeapon;
 
-	// Update is called once per frame
-	// void Update()
-	// {
-	// }
+    public static CUIManager UIManager;
 
-	public void OnEsc(InputAction.CallbackContext context)
-	{
-		if (context.performed)
-		{
-			actionSetPanel.SetActive(true);
-			Debug.Log("Esc");
-		}
-	}
+    private void Awake()
+    {
+        UIManager = this;
+        //actionSetPanel.SetActive(actionSetState);
+    }
 
-	public void GeneratePopUP(int damage, Vector3 position)
-	{
-		GameObject damagePrefab = Instantiate(_damagePrefab, position, quaternion.identity, _damageCanvas.transform);
+    public void OnEsc(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            actionSetPanel.SetActive(true);
+            Debug.Log("Esc");
+        }
+    }
 
-		damagePrefab.GetComponent<TextMeshProUGUI>().text = "1";
-	}
+    public void GeneratePopUP(int damage, Vector3 position)
+    {
+        GameObject damagePrefab = Instantiate(_damagePrefab, position, quaternion.identity, _damageCanvas.transform);
+
+        damagePrefab.GetComponent<TextMeshProUGUI>().text = "1";
+    }
+
+    public void SetPlayerHP(float ratio)
+    {
+        _playerHP.fillAmount = ratio;
+    }
 }
