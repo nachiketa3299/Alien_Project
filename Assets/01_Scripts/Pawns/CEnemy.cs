@@ -64,6 +64,12 @@ namespace AlienProject
 			_sensor = GetComponent<SensorBase>();
 
 			_enemyUI = GetComponent<CEnemyUI>();
+
+			if (!_enemyUI)
+			{
+				return;
+			}
+
 			_enemyUI.Init(3, 3);
 
 			InitEffectManager();
